@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+.intent-dialog-container {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 50vw;
+}
+
+button {
+  background-color: #ff7300;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.intent-dialog {
+  font-weight: 600;
+  font-size: 2rem;
+  width: 50%;
+}
+
+.intent {
+  padding: 20px;
+  font-size: 1.5rem;
+}
+
+hr {
+  width: 5%;
+  color: #6b7d81;
+}

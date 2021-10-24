@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const { getIntentList } = require("./services/dialogFlowIntent");
 const server = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 
 /**
  * Node serve the files for our built React app

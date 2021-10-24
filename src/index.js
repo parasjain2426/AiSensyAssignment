@@ -1,15 +1,14 @@
 require("dotenv").config();
 const express = require("express");
+const path = require("path");
 const { getIntentList } = require("./services/dialogFlowIntent");
 const server = express();
 const port = process.env.PORT;
 
 /**
- * Get Request to initial endpoint
+ * Node serve the files for our built React app
  */
-server.get("/", (req, res) => {
-  res.send(responseFormatter(false, {}, "Server Running Successfully!"));
-});
+server.use(express.static(path.resolve(__dirname, "../react-client/build")));
 
 /**
  * Get-Request to getIntentList endpoint
@@ -28,6 +27,13 @@ server.get("/getIntentList/:id", async (req, res) => {
   } else {
     res.send(responseFormatter(true, {}, err.message));
   }
+});
+
+/**
+ * All other GET requests not handled before will return our React app
+ */
+server.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../react-client/build", "index.html"));
 });
 
 /**
